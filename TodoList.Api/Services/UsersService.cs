@@ -55,7 +55,7 @@ public class UsersService(TodoListDbContext context, IConfiguration configuratio
             audience: configuration["JwtConfig:Audience"],
             issuer: configuration["JwtConfig:Issuer"],
             claims: userClaims,
-            expires: DateTime.Now.AddMinutes(configuration.GetValue<int>("JwtConfig:TokenValidityMins")),
+            expires: DateTime.Now.AddMinutes(configuration.GetValue<int>("JwtConfig:TokenValidityMins",30)),
             signingCredentials: credentials
         );
 
